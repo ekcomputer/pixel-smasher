@@ -1,18 +1,18 @@
 #### general settings
-name: 003_RRDB_ESRGANx8_PLANET
+name: 000_RRDB_ESRGANx4_pretrainDIV2K_PLANET_old
 use_tb_logger: true
 model: srgan
 distortion: sr
-scale: 8
+scale: 4
 gpu_ids: [0]
 
 #### datasets
 datasets:
   train:
-    name: PLANET
+    name: PLANET_TRAIN
     mode: LQGT
-    dataroot_GT: /data_dir/train_HR_cal_x8.lmdb
-    dataroot_LQ: /data_dir/train_LR_cal_x8.lmdb
+    dataroot_GT: /data_dir/train_mod/PLANET_HR_x4_train.lmdb
+    dataroot_LQ: /data_dir/train_mod/PLANET_LR_x4_train.lmdb
 
     use_shuffle: true
     n_workers: 8  # per GPU
@@ -22,10 +22,10 @@ datasets:
     use_rot: true
     color: RGB
   val:
-    name: val_set14_part
+    name: PLANET_VAL
     mode: LQGT
-    dataroot_GT: /data_dir/valid_mod_cal/HR/x8/ #/mnt/SSD/xtwang/BasicSR_datasets/val_set14_part/Set14
-    dataroot_LQ: /data_dir/valid_mod_cal/LR/x8/ #/mnt/SSD/xtwang/BasicSR_datasets/val_set14_part/Set14_bicLRx4
+    dataroot_GT: /data_dir/valid_mod/HR/x4 #/mnt/SSD/xtwang/BasicSR_datasets/val_set14_part/Set14
+    dataroot_LQ: /data_dir/valid_mod/LR/x4 #/mnt/SSD/xtwang/BasicSR_datasets/val_set14_part/Set14_bicLRx4
 
 #### network structures
 network_G:
